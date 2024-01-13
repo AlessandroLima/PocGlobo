@@ -76,17 +76,24 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     }
     
     @objc func handleJSONReceived(_ notification: Notification) {
-        // Processar o JSON e exibir um alerta na interface do usuário
-        if let json = notification.object as? [String: Any] {
-            //showAlert(with: json)
-            print("JSON: ", json)
+        
+        if Utils.shared.hasInternetConnection() {
+            
+            let events = event.selectTopNEvent(limit: Int(TaskEnvironment.numberEvents.rawValue))
+            let jsonEncoder = JSONEncoder()
+            let jsonData = try! jsonEncoder.encode(events)
+            let json = String(data: jsonData, encoding: String.Encoding.utf8)
+            
+            if let json = json {
+                print(json)
+            }
         }
     }
     
-//    func showAlert(with json: [String: Any]) {
-//        let alert = UIAlertController(title: "JSON Received", message: "\(json)", preferredStyle: .alert)
-//        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-//        present(alert, animated: true, completion: nil)
-//    }
+    //    func showAlert(with json: [String: Any]) {
+    //        let alert = UIAlertController(title: "JSON Received", message: "\(json)", preferredStyle: .alert)
+    //        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+    //        present(alert, animated: true, completion: nil)
+    //    }
     
 }

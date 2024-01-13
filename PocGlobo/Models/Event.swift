@@ -1,6 +1,9 @@
 import Foundation
 import SQLite3
 
+struct Events: Codable {
+    var events: [Event] = []
+}
 
 class Event: SQLiteBaseModel, SQLiteBaseModelType, Codable {
     
@@ -66,7 +69,7 @@ class Event: SQLiteBaseModel, SQLiteBaseModelType, Codable {
         return true
     }
     
-    func selectTopNEvent(limit: Int) -> [Event]? {
+    func selectTopNEvent(limit: Int) -> Events? {
         
         var events: [Event] = []
 
@@ -95,8 +98,14 @@ class Event: SQLiteBaseModel, SQLiteBaseModelType, Codable {
 
         sqlite3_finalize(selectStatement)
         sqlite3_close(super.db)
-
-        return events
+        
+        let setOfEvents = Events.init(events: events)
+            
+        if setOfEvents.events.count > 0 {
+            return setOfEvents
+        }
+        
+        return Events.init(events: [])
     }
     
     func deleteRowsInBatch(ids: [Int]) -> Bool {

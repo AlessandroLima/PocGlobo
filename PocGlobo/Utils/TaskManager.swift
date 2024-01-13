@@ -12,6 +12,7 @@ import UIKit
 class TaskManager {
 
     static let shared = TaskManager()
+    
     private var backgroundTask: UIBackgroundTaskIdentifier = .invalid
 
     func startBackgroundTask() {
