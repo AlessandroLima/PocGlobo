@@ -117,9 +117,9 @@
 		6CB91AB72B520A1F00A0CF51 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				6CB91B1C2B52A39F00A0CF51 /* Home */,
 				6CB91B082B521DE700A0CF51 /* AppDelegate.swift */,
 				6CB91AB82B520A1F00A0CF51 /* PocGloboApp.swift */,
-				6CB91AB92B520A1F00A0CF51 /* HomeView.swift */,
 				6CB91ABA2B520A2400A0CF51 /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -179,6 +179,14 @@
 				6CB91B152B521EFA00A0CF51 /* SQLiteBaseModelType.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		6CB91B1C2B52A39F00A0CF51 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				6CB91AB92B520A1F00A0CF51 /* HomeView.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

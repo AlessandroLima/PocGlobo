@@ -23,19 +23,13 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     private func setDBManager() {
         let manager = sqliteManager.openOrCreateDatabase(databaseName: "myDatabase.sqlite")
         db = manager.db
-        
     }
-    
-    
     
     private func createEventTable() {
 
         if let db = self.db {
 
-            lazy var event: Event = {
-                return Event()
-            }()
-
+            lazy var event: Event = { return Event() }()
             event.setManagerAndDB(manager: self.sqliteManager, db: db)
             event.createTable()
             

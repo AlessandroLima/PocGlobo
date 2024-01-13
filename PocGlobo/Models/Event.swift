@@ -107,8 +107,6 @@ class Event: SQLiteBaseModel, SQLiteBaseModelType {
     }
     
     func deleteRowsInBatch(ids: [Int]) -> Bool {
-        //let db: OpaquePointer? = nil
-        
         let tableName = "event"
 
         if sqlite3_open(self.manager?.databasePath, &super.db) != SQLITE_OK {
