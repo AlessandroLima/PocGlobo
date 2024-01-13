@@ -22,10 +22,4 @@ class Utils {
             return true
         }
     }
-    
-    func jsonEncoder(object: AnyObject) {
-        
-    }
-    
-    
 }

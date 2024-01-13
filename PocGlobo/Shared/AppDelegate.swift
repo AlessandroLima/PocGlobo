@@ -42,18 +42,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
             
             _ = event.insertEventInBatch(events: eventToInsert)
             
-            //            let peopleToInsert = [
-            //                Pessoa(nome: "Alice", idade: 4),
-            //                Pessoa(nome: "Ale", idade: 50),
-            //                Pessoa(nome: "Mi", idade: 39),
-            //                Pessoa(nome: "Pedro", idade: 0),
-            //                Pessoa(nome: "Alice2", idade: 4),
-            //                Pessoa(nome: "Ale2", idade: 50),
-            //                Pessoa(nome: "Mi2", idade: 39),
-            //                Pessoa(nome: "Pedro2", idade: 0),
-            //            ]
-            //
-            //            _ = person.insertPeopleInBatch(people: peopleToInsert)
             //
             //            _ = person.deleteRowsInBatch(ids: [1,2,3,4])
             //
@@ -89,11 +77,5 @@ class AppDelegate: NSObject, UIApplicationDelegate {
             }
         }
     }
-    
-    //    func showAlert(with json: [String: Any]) {
-    //        let alert = UIAlertController(title: "JSON Received", message: "\(json)", preferredStyle: .alert)
-    //        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-    //        present(alert, animated: true, completion: nil)
-    //    }
     
 }

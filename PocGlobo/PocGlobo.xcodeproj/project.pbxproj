@@ -35,9 +35,9 @@
 		6CB91B292B52C1EB00A0CF51 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB91B272B52C1EB00A0CF51 /* HomeViewModel.swift */; };
 		6CB91B2C2B52F5BD00A0CF51 /* TaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB91B2B2B52F5BD00A0CF51 /* TaskManager.swift */; };
 		6CB91B2D2B52F5BD00A0CF51 /* TaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB91B2B2B52F5BD00A0CF51 /* TaskManager.swift */; };
-		6CB91B302B53009100A0CF51 /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = 6CB91B2F2B53009100A0CF51 /* Reachability */; };
 		6CB91B322B5300EB00A0CF51 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB91B312B5300EB00A0CF51 /* Utils.swift */; };
 		6CB91B332B5300EB00A0CF51 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB91B312B5300EB00A0CF51 /* Utils.swift */; };
+		6CB91B382B5325BA00A0CF51 /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = 6CB91B372B5325BA00A0CF51 /* Reachability */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,7 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6CB91B302B53009100A0CF51 /* Reachability in Frameworks */,
+				6CB91B382B5325BA00A0CF51 /* Reachability in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,7 +240,7 @@
 			);
 			name = "PocGlobo (iOS)";
 			packageProductDependencies = (
-				6CB91B2F2B53009100A0CF51 /* Reachability */,
+				6CB91B372B5325BA00A0CF51 /* Reachability */,
 			);
 			productName = "PocGlobo (iOS)";
 			productReference = 6CB91ABF2B520A2400A0CF51 /* PocGlobo.app */;
@@ -335,7 +335,7 @@
 			);
 			mainGroup = 6CB91AB22B520A1E00A0CF51;
 			packageReferences = (
-				6CB91B2E2B53009100A0CF51 /* XCRemoteSwiftPackageReference "Reachability" */,
+				6CB91B362B5325BA00A0CF51 /* XCRemoteSwiftPackageReference "Reachability" */,
 			);
 			productRefGroup = 6CB91AC02B520A2400A0CF51 /* Products */;
 			projectDirPath = "";
@@ -813,7 +813,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		6CB91B2E2B53009100A0CF51 /* XCRemoteSwiftPackageReference "Reachability" */ = {
+		6CB91B362B5325BA00A0CF51 /* XCRemoteSwiftPackageReference "Reachability" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ashleymills/Reachability.swift";
 			requirement = {
@@ -824,9 +824,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		6CB91B2F2B53009100A0CF51 /* Reachability */ = {
+		6CB91B372B5325BA00A0CF51 /* Reachability */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 6CB91B2E2B53009100A0CF51 /* XCRemoteSwiftPackageReference "Reachability" */;
+			package = 6CB91B362B5325BA00A0CF51 /* XCRemoteSwiftPackageReference "Reachability" */;
 			productName = Reachability;
 		};
 /* End XCSwiftPackageProductDependency section */
