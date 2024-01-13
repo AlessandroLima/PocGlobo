@@ -7,11 +7,6 @@
 
 import UIKit
 
-enum DbEnvironment: String {
-    case dbName = "myDatabase.sqlite"
-    case dbEventTableName = "event"
-}
-
 class DBConstants {
     
     static let sqliteManager: SQLiteManager = SQLiteManager()

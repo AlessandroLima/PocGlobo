@@ -19,7 +19,6 @@ class SQLiteManager: SQLiteManagerType {
         if sqlite3_prepare_v2(db, modelName, -1, &createTableStatement, nil) == SQLITE_OK {
             if sqlite3_step(createTableStatement) == SQLITE_DONE {
                 sqlite3_finalize(createTableStatement)
-                print("Table created successfully!")
                 return true
             } else {
                 print("Error creating table.")
@@ -58,10 +57,10 @@ class SQLiteManager: SQLiteManagerType {
         } else {
             // Se o banco de dados não existir, crie-o
             if sqlite3_open(databaseURL.path, &db) == SQLITE_OK {
-                print("Banco de dados criado com sucesso em: \(databaseURL.path)")
+                print("Database successfully created in: \(databaseURL.path)")
                 return (db, databaseURL.path)
             } else {
-                print("Erro ao criar o banco de dados.")
+                print("Error creating the database.")
                 return (nil, "")
             }
         }

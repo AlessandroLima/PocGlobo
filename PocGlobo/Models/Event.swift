@@ -1,14 +1,8 @@
 import Foundation
 import SQLite3
 
-enum TypesOfEvents: String{
-    case none
-    case openApp
-    case openScreen
-    case onclick
-}
 
-class Event: SQLiteBaseModel, SQLiteBaseModelType {
+class Event: SQLiteBaseModel, SQLiteBaseModelType, Codable {
     
     var id: Int
     var type: String
@@ -69,7 +63,6 @@ class Event: SQLiteBaseModel, SQLiteBaseModelType {
             return false
         }
         
-        print("Events inserted successfully!")
         return true
     }
     
