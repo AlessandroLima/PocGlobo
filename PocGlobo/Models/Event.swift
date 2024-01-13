@@ -5,7 +5,6 @@ class Event: SQLiteBaseModel, SQLiteBaseModelType {
     
     var id: Int
     var name: String
-    private let tableName = "event"
     
     //Placeholder
     init(id: Int = 0, name: String = "") {
@@ -99,6 +98,8 @@ class Event: SQLiteBaseModel, SQLiteBaseModelType {
     
     func deleteRowsInBatch(ids: [Int]) -> Bool {
         var db: OpaquePointer? = nil
+        
+        let tableName = "event"
 
         if sqlite3_open(self.manager?.databasePath, &super.db) != SQLITE_OK {
             print("Error opening database.")
