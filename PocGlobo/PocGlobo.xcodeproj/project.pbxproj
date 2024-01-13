@@ -13,8 +13,8 @@
 		6CB91ADF2B520A2400A0CF51 /* Tests_macOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB91ADE2B520A2400A0CF51 /* Tests_macOSLaunchTests.swift */; };
 		6CB91AE02B520A2400A0CF51 /* PocGloboApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB91AB82B520A1F00A0CF51 /* PocGloboApp.swift */; };
 		6CB91AE12B520A2400A0CF51 /* PocGloboApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB91AB82B520A1F00A0CF51 /* PocGloboApp.swift */; };
-		6CB91AE22B520A2400A0CF51 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB91AB92B520A1F00A0CF51 /* ContentView.swift */; };
-		6CB91AE32B520A2400A0CF51 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB91AB92B520A1F00A0CF51 /* ContentView.swift */; };
+		6CB91AE22B520A2400A0CF51 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB91AB92B520A1F00A0CF51 /* HomeView.swift */; };
+		6CB91AE32B520A2400A0CF51 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB91AB92B520A1F00A0CF51 /* HomeView.swift */; };
 		6CB91AE42B520A2400A0CF51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CB91ABA2B520A2400A0CF51 /* Assets.xcassets */; };
 		6CB91AE52B520A2400A0CF51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CB91ABA2B520A2400A0CF51 /* Assets.xcassets */; };
 		6CB91B092B521DE700A0CF51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB91B082B521DE700A0CF51 /* AppDelegate.swift */; };
@@ -50,7 +50,7 @@
 
 /* Begin PBXFileReference section */
 		6CB91AB82B520A1F00A0CF51 /* PocGloboApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PocGloboApp.swift; sourceTree = "<group>"; };
-		6CB91AB92B520A1F00A0CF51 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		6CB91AB92B520A1F00A0CF51 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		6CB91ABA2B520A2400A0CF51 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6CB91ABF2B520A2400A0CF51 /* PocGlobo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocGlobo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CB91AC52B520A2400A0CF51 /* PocGlobo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocGlobo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,7 +119,7 @@
 			children = (
 				6CB91B082B521DE700A0CF51 /* AppDelegate.swift */,
 				6CB91AB82B520A1F00A0CF51 /* PocGloboApp.swift */,
-				6CB91AB92B520A1F00A0CF51 /* ContentView.swift */,
+				6CB91AB92B520A1F00A0CF51 /* HomeView.swift */,
 				6CB91ABA2B520A2400A0CF51 /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -344,7 +344,7 @@
 				6CB91B162B521EFA00A0CF51 /* SQLiteBaseModel.swift in Sources */,
 				6CB91B0F2B521E5A00A0CF51 /* SQLiteManager.swift in Sources */,
 				6CB91B1A2B521EFA00A0CF51 /* SQLiteBaseModelType.swift in Sources */,
-				6CB91AE22B520A2400A0CF51 /* ContentView.swift in Sources */,
+				6CB91AE22B520A2400A0CF51 /* HomeView.swift in Sources */,
 				6CB91B182B521EFA00A0CF51 /* Event.swift in Sources */,
 				6CB91AE02B520A2400A0CF51 /* PocGloboApp.swift in Sources */,
 			);
@@ -359,7 +359,7 @@
 				6CB91B172B521EFA00A0CF51 /* SQLiteBaseModel.swift in Sources */,
 				6CB91B102B521E5A00A0CF51 /* SQLiteManager.swift in Sources */,
 				6CB91B1B2B521EFA00A0CF51 /* SQLiteBaseModelType.swift in Sources */,
-				6CB91AE32B520A2400A0CF51 /* ContentView.swift in Sources */,
+				6CB91AE32B520A2400A0CF51 /* HomeView.swift in Sources */,
 				6CB91B192B521EFA00A0CF51 /* Event.swift in Sources */,
 				6CB91AE12B520A2400A0CF51 /* PocGloboApp.swift in Sources */,
 			);

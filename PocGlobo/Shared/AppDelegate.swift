@@ -26,6 +26,8 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         
     }
     
+    
+    
     private func createEventTable() {
 
         if let db = self.db {
@@ -36,6 +38,12 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
             event.setManagerAndDB(manager: self.sqliteManager, db: db)
             event.createTable()
+            
+            let eventToInsert = [
+                Event(type: "\(TypesOfEvents.openApp)", createdIn: "\(NSDate().timeIntervalSince1970)")
+            ]
+            
+            _ = event.insertEventInBatch(events: eventToInsert)
 
 //            let peopleToInsert = [
 //                Pessoa(nome: "Alice", idade: 4),

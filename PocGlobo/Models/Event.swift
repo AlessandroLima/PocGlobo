@@ -1,15 +1,24 @@
 import Foundation
 import SQLite3
 
+enum TypesOfEvents: String{
+    case none
+    case openApp
+    case openScreen
+    case onclick
+}
+
 class Event: SQLiteBaseModel, SQLiteBaseModelType {
     
     var id: Int
-    var name: String
+    var type: String
+    var createdIn: String
     
     //Placeholder
-    init(id: Int = 0, name: String = "") {
+    init(id: Int = 0, type: String = "", createdIn: String = "") {
         self.id = id
-        self.name = name
+        self.type = type
+        self.createdIn = createdIn
     }
     
     func createTable(){
@@ -19,7 +28,7 @@ class Event: SQLiteBaseModel, SQLiteBaseModelType {
         }
     }
     
-    func insertPeopleInBatch(events: [Event]) -> Bool {
+    func insertEventInBatch(events: [Event]) -> Bool {
         
         if let manager = manager {
             
@@ -28,20 +37,21 @@ class Event: SQLiteBaseModel, SQLiteBaseModelType {
                 return false
             }
             
-            let insertStatementString = "INSERT INTO \("event") (name) VALUES (?)"
+            let insertStatementString = "INSERT INTO \("event") (type, createdIn) VALUES (?, ?)"
             var insertStatement: OpaquePointer? = nil
             
-            if sqlite3_prepare_v2(db, insertStatementString, -1, &insertStatement, nil) != SQLITE_OK {
+            if sqlite3_prepare_v2(super.db, insertStatementString, -1, &insertStatement, nil) != SQLITE_OK {
                 print("Error preparing insert statement.")
                 return false
             }
             
-            sqlite3_exec(db, "BEGIN TRANSACTION", nil, nil, nil) // Iniciar uma transação
+            sqlite3_exec(super.db, "BEGIN TRANSACTION", nil, nil, nil) // Iniciar uma transação
             
             for event in events {
-                let itemName = event.name as NSString
-                sqlite3_bind_text(insertStatement, 1, itemName.utf8String, -1, nil)
-                //sqlite3_bind_int(insertStatement, 2, Int32(person.idade))
+                let itemType = event.type as NSString
+                let itemcreatedIn = event.createdIn as NSString
+                sqlite3_bind_text(insertStatement, 1, itemType.utf8String, -1, nil)
+                sqlite3_bind_text(insertStatement, 2, itemcreatedIn.utf8String, -1, nil)
                 
                 if sqlite3_step(insertStatement) != SQLITE_DONE {
                     print("Error inserting event")
@@ -51,10 +61,10 @@ class Event: SQLiteBaseModel, SQLiteBaseModelType {
                 sqlite3_reset(insertStatement)
             }
             
-            sqlite3_exec(db, "COMMIT", nil, nil, nil) // Commit da transação
+            sqlite3_exec(super.db, "COMMIT", nil, nil, nil) // Commit da transação
             
             sqlite3_finalize(insertStatement)
-            sqlite3_close(db)
+            sqlite3_close(super.db)
         } else {
             return false
         }
@@ -84,20 +94,20 @@ class Event: SQLiteBaseModel, SQLiteBaseModelType {
 
         while sqlite3_step(selectStatement) == SQLITE_ROW {
             let id = Int(sqlite3_column_int(selectStatement, 0))
-            let name = String(cString: sqlite3_column_text(selectStatement, 1))
-            //let age = Int(sqlite3_column_int(selectStatement, 2))
-            let event = Event(id: id, name: name)
+            let type = String(cString: sqlite3_column_text(selectStatement, 1))
+            let createdIn = String(cString: sqlite3_column_text(selectStatement, 2))
+            let event = Event(id: id, type: type, createdIn: createdIn)
             events.append(event)
         }
 
         sqlite3_finalize(selectStatement)
-        sqlite3_close(db)
+        sqlite3_close(super.db)
 
         return events
     }
     
     func deleteRowsInBatch(ids: [Int]) -> Bool {
-        var db: OpaquePointer? = nil
+        //let db: OpaquePointer? = nil
         
         let tableName = "event"
 
@@ -113,7 +123,7 @@ class Event: SQLiteBaseModel, SQLiteBaseModelType {
             return false
         }
 
-        sqlite3_close(db)
+        sqlite3_close(super.db)
 
         return true
     }

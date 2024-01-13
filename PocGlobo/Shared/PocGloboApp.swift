@@ -13,7 +13,7 @@ struct PocGloboApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeView()
         }
     }
 }
