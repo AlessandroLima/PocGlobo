@@ -19,6 +19,10 @@ enum DbEnvironment: String {
     case dbEventTableName = "event"
 }
 
+enum TaskEnvironment: UInt32 {
+    case waitingTime = 10
+}
+
 
 
 

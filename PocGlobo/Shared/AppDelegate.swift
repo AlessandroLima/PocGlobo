@@ -25,6 +25,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         
         _ = DBConstants()
         createEventTable()
+        startTaskManager()
         return true
     }
     
@@ -66,5 +67,26 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         }
     }
     
+    private func startTaskManager() {
+        // Registrar para receber notificações quando um JSON é recebido
+        NotificationCenter.default.addObserver(self, selector: #selector(handleJSONReceived(_:)), name: Notification.Name("JSONReceived"), object: nil)
+        
+        // Iniciar a tarefa em segundo plano
+        TaskManager.shared.startBackgroundTask()
+    }
+    
+    @objc func handleJSONReceived(_ notification: Notification) {
+        // Processar o JSON e exibir um alerta na interface do usuário
+        if let json = notification.object as? [String: Any] {
+            //showAlert(with: json)
+            print("JSON: ", json)
+        }
+    }
+    
+//    func showAlert(with json: [String: Any]) {
+//        let alert = UIAlertController(title: "JSON Received", message: "\(json)", preferredStyle: .alert)
+//        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+//        present(alert, animated: true, completion: nil)
+//    }
     
 }
