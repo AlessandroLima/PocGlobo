@@ -27,6 +27,12 @@ class HomeViewModel: ObservableObject {
         if let db = db {
             event.setManagerAndDB(manager: manager, db: db)
         }
+        
+        let eventToInsert = [
+            Event(type: "\(TypesOfEvents.openScreen)", createdIn: "\(NSDate().timeIntervalSince1970)")
+        ]
+        
+        _ = event.insertEventInBatch(events: eventToInsert)
     
     }
 
