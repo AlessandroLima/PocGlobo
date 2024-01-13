@@ -21,15 +21,19 @@ class HomeViewModel: ObservableObject {
     let manager = DBConstants.sqliteManager
     let db = DBConstants.db
     lazy var event: Event = { return Event() }()
+    
+    init() {
+        
+        if let db = db {
+            event.setManagerAndDB(manager: manager, db: db)
+        }
+    
+    }
 
     func login() {
         print("Login Button Pressed")
         print("Username: \(username)")
         print("Password: \(password)")
-        
-        if let db = db {
-            event.setManagerAndDB(manager: manager, db: db)
-        }
         
         let eventToInsert = [
             Event(type: "\(TypesOfEvents.onclick)", createdIn: "\(NSDate().timeIntervalSince1970)")

@@ -22,7 +22,7 @@ class Event: SQLiteBaseModel, SQLiteBaseModelType {
     }
     
     func createTable(){
-        let sqlString = super.createTableString(name: "event")
+        let sqlString = super.createTableString(name: DbEnvironment.dbEventTableName.rawValue)
         if let manager = super.manager, let db = super.db {
             _ = manager.createTableFromModel(modelName: sqlString, in: db)
         }
@@ -37,7 +37,7 @@ class Event: SQLiteBaseModel, SQLiteBaseModelType {
                 return false
             }
             
-            let insertStatementString = "INSERT INTO \("event") (type, createdIn) VALUES (?, ?)"
+            let insertStatementString = "INSERT INTO \(DbEnvironment.dbEventTableName.rawValue) (type, createdIn) VALUES (?, ?)"
             var insertStatement: OpaquePointer? = nil
             
             if sqlite3_prepare_v2(super.db, insertStatementString, -1, &insertStatement, nil) != SQLITE_OK {
@@ -82,7 +82,7 @@ class Event: SQLiteBaseModel, SQLiteBaseModelType {
             return nil
         }
 
-        let selectStatementString = "SELECT * FROM \("event") ORDER BY id DESC LIMIT ?"
+        let selectStatementString = "SELECT * FROM \(DbEnvironment.dbEventTableName.rawValue) ORDER BY id DESC LIMIT ?"
         var selectStatement: OpaquePointer? = nil
 
         if sqlite3_prepare_v2(super.db, selectStatementString, -1, &selectStatement, nil) != SQLITE_OK {
@@ -107,14 +107,13 @@ class Event: SQLiteBaseModel, SQLiteBaseModelType {
     }
     
     func deleteRowsInBatch(ids: [Int]) -> Bool {
-        let tableName = "event"
-
+        
         if sqlite3_open(self.manager?.databasePath, &super.db) != SQLITE_OK {
             print("Error opening database.")
             return false
         }
 
-        let deleteStatementString = "DELETE FROM \(tableName) WHERE id IN (\(ids.map { String($0) }.joined(separator: ",")))"
+        let deleteStatementString = "DELETE FROM \(DbEnvironment.dbEventTableName.rawValue) WHERE id IN (\(ids.map { String($0) }.joined(separator: ",")))"
 
         if sqlite3_exec(super.db, deleteStatementString, nil, nil, nil) != SQLITE_OK {
             print("Error executing batch delete statement.")

@@ -34,6 +34,7 @@ class SQLiteManager: SQLiteManagerType {
     
     
     func openOrCreateDatabase(databaseName: String) -> (db: OpaquePointer?, path: String) {
+        
         var db: OpaquePointer?
         
         // Obtenha o caminho para o diretório de documentos do aplicativo

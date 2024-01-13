@@ -7,16 +7,17 @@
 
 import UIKit
 
+enum DbEnvironment: String {
+    case dbName = "myDatabase.sqlite"
+    case dbEventTableName = "event"
+}
+
 class DBConstants {
     
     static let sqliteManager: SQLiteManager = SQLiteManager()
-    static var db: OpaquePointer?
-    private var dbName = "myDatabase.sqlite"
-    
-    init() {
-        let dbManager = DBConstants.sqliteManager.openOrCreateDatabase(databaseName: dbName)
-        DBConstants.db = dbManager.db
-    }
+    static let db: OpaquePointer?  = {
+        return DBConstants.sqliteManager.openOrCreateDatabase(databaseName: DbEnvironment.dbName.rawValue).db
+    }()
 }
 
 
