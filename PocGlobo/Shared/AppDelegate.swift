@@ -21,6 +21,8 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     
     lazy var event: Event = { return Event() }()
     
+    lazy var manager =  HTTPRequestManager()
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         _ = DBConstants()
@@ -72,10 +74,11 @@ class AppDelegate: NSObject, UIApplicationDelegate {
             let jsonData = try! jsonEncoder.encode(events)
             let json = String(data: jsonData, encoding: String.Encoding.utf8)
             
-            if let json = json {
-                print(json)
-            }
+            print(json)
+//            manager.makePostRequest(with: jsonData) { result in
+//                
+//            }
         }
     }
-    
 }
+

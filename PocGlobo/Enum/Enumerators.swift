@@ -24,6 +24,13 @@ enum TaskEnvironment: UInt32 {
     case numberEvents = 10
 }
 
+enum ServerEnvironment: String {
+    case urlBase = "http://localhost"
+    case port = ":500"
+    case timeOut = "5"
+}
+
+
 
 
 
