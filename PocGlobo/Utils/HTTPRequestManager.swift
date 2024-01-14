@@ -35,13 +35,22 @@ class HTTPRequestManager {
             
             guard let httpResponse = response as? HTTPURLResponse,
                   (200...299).contains(httpResponse.statusCode) else {
-                completionHandler(.failure(.invalidResponse))
-                return
-            }
+                      completionHandler(.failure(.invalidResponse))
+                      return
+                  }
             
             if let jsonData = data {
-                // Aqui você pode analisar o JSON de retorno, se necessário.
-                // Por exemplo: let json = try? JSONSerialization.jsonObject(with: jsonData, options: [])
+                
+                do {
+                    if let json = try JSONSerialization.jsonObject(with: jsonData, options: []) as? [String: Any] {
+                        if let success = json["success"] as? Bool {
+                            success == true ? completionHandler(.success(true)) : completionHandler(.success(false))
+                        }
+                    }
+                } catch let error as NSError {
+                    print("Failed to load: \(error.localizedDescription)")
+                }
+                
                 completionHandler(.success(true))
             } else {
                 completionHandler(.failure(.invalidResponse))

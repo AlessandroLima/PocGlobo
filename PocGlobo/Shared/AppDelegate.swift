@@ -72,12 +72,23 @@ class AppDelegate: NSObject, UIApplicationDelegate {
             let events = event.selectTopNEvent(limit: Int(TaskEnvironment.numberEvents.rawValue))
             let jsonEncoder = JSONEncoder()
             let jsonData = try! jsonEncoder.encode(events)
-            let json = String(data: jsonData, encoding: String.Encoding.utf8)
+            //let json = String(data: jsonData, encoding: String.Encoding.utf8)
             
-            print(json)
-//            manager.makePostRequest(with: jsonData) { result in
-//                
-//            }
+            manager.makePostRequest(with: jsonData) { result in
+                switch result {
+                case .success(let success):
+                    success == true ? print("Request successful: \(success)") : print("Request fail: \(success)")
+                case .failure(let error):
+                    switch error {
+                    case .timeout:
+                        print("Request timed out")
+                    case .invalidResponse:
+                        print("Invalid response")
+                    case .requestFailed(let underlyingError):
+                        print("Request failed with underlying error: \(underlyingError)")
+                    }
+                }
+            }
         }
     }
 }

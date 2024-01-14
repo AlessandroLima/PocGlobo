@@ -83,7 +83,6 @@
 		6CB91B2B2B52F5BD00A0CF51 /* TaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManager.swift; sourceTree = "<group>"; };
 		6CB91B312B5300EB00A0CF51 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		6CEF57EC2B54438400DCE4C7 /* HTTPRequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequestManager.swift; sourceTree = "<group>"; };
-		6CEF57EF2B5450A800DCE4C7 /* PocGlobo--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "PocGlobo--iOS--Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,7 +121,6 @@
 		6CB91AB22B520A1E00A0CF51 = {
 			isa = PBXGroup;
 			children = (
-				6CEF57EF2B5450A800DCE4C7 /* PocGlobo--iOS--Info.plist */,
 				6CB91B2A2B52F5A400A0CF51 /* Utils */,
 				6CB91B232B52C06700A0CF51 /* Enum */,
 				6CB91B122B521ED700A0CF51 /* Models */,
