@@ -32,7 +32,7 @@ class TaskManager {
         }
     }
     
-    private func endBackgroundTask() {
+    func endBackgroundTask() {
         UIApplication.shared.endBackgroundTask(backgroundTask)
         backgroundTask = .invalid
     }

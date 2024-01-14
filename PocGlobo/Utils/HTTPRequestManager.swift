@@ -45,13 +45,12 @@ class HTTPRequestManager {
                     if let json = try JSONSerialization.jsonObject(with: jsonData, options: []) as? [String: Any] {
                         if let success = json["success"] as? Bool {
                             success == true ? completionHandler(.success(true)) : completionHandler(.success(false))
+                            
                         }
                     }
                 } catch let error as NSError {
                     print("Failed to load: \(error.localizedDescription)")
                 }
-                
-                completionHandler(.success(true))
             } else {
                 completionHandler(.failure(.invalidResponse))
             }

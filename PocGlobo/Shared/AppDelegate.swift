@@ -89,6 +89,8 @@ class AppDelegate: NSObject, UIApplicationDelegate {
                     }
                 }
             }
+        } else {
+            TaskManager.shared.endBackgroundTask()
         }
     }
 }
