@@ -42,7 +42,7 @@ class Event: SQLiteBaseModel, SQLiteBaseModelType, Codable {
                 return false
             }
             
-            sqlite3_exec(super.db, "BEGIN TRANSACTION", nil, nil, nil) // Iniciar uma transação
+            sqlite3_exec(super.db, "BEGIN TRANSACTION", nil, nil, nil)
             
             for event in events {
                 let itemType = event.type as NSString
@@ -58,7 +58,7 @@ class Event: SQLiteBaseModel, SQLiteBaseModelType, Codable {
                 sqlite3_reset(insertStatement)
             }
             
-            sqlite3_exec(super.db, "COMMIT", nil, nil, nil) // Commit da transação
+            sqlite3_exec(super.db, "COMMIT", nil, nil, nil)
             
             sqlite3_finalize(insertStatement)
             sqlite3_close(super.db)

@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6C8991F12B54936600B8D9FC /* TestHTTPRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8991F02B54936600B8D9FC /* TestHTTPRequestManager.swift */; };
+		6C8991F32B554FAE00B8D9FC /* JsonProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8991F22B554FAE00B8D9FC /* JsonProcessor.swift */; };
+		6C8991F42B554FAE00B8D9FC /* JsonProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8991F22B554FAE00B8D9FC /* JsonProcessor.swift */; };
 		6CB91AD12B520A2400A0CF51 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB91AD02B520A2400A0CF51 /* Tests_iOS.swift */; };
 		6CB91AD32B520A2400A0CF51 /* Tests_iOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB91AD22B520A2400A0CF51 /* Tests_iOSLaunchTests.swift */; };
 		6CB91ADD2B520A2400A0CF51 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB91ADC2B520A2400A0CF51 /* Tests_macOS.swift */; };
@@ -34,8 +35,6 @@
 		6CB91B262B52C0AB00A0CF51 /* Enumerators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB91B242B52C0AB00A0CF51 /* Enumerators.swift */; };
 		6CB91B282B52C1EB00A0CF51 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB91B272B52C1EB00A0CF51 /* HomeViewModel.swift */; };
 		6CB91B292B52C1EB00A0CF51 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB91B272B52C1EB00A0CF51 /* HomeViewModel.swift */; };
-		6CB91B2C2B52F5BD00A0CF51 /* TaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB91B2B2B52F5BD00A0CF51 /* TaskManager.swift */; };
-		6CB91B2D2B52F5BD00A0CF51 /* TaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB91B2B2B52F5BD00A0CF51 /* TaskManager.swift */; };
 		6CB91B322B5300EB00A0CF51 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB91B312B5300EB00A0CF51 /* Utils.swift */; };
 		6CB91B332B5300EB00A0CF51 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB91B312B5300EB00A0CF51 /* Utils.swift */; };
 		6CB91B382B5325BA00A0CF51 /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = 6CB91B372B5325BA00A0CF51 /* Reachability */; };
@@ -61,7 +60,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		6C8991F02B54936600B8D9FC /* TestHTTPRequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHTTPRequestManager.swift; sourceTree = "<group>"; };
+		6C8991F22B554FAE00B8D9FC /* JsonProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonProcessor.swift; sourceTree = "<group>"; };
 		6CB91AB82B520A1F00A0CF51 /* PocGloboApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PocGloboApp.swift; sourceTree = "<group>"; };
 		6CB91AB92B520A1F00A0CF51 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		6CB91ABA2B520A2400A0CF51 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -82,7 +81,6 @@
 		6CB91B152B521EFA00A0CF51 /* SQLiteBaseModelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteBaseModelType.swift; sourceTree = "<group>"; };
 		6CB91B242B52C0AB00A0CF51 /* Enumerators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enumerators.swift; sourceTree = "<group>"; };
 		6CB91B272B52C1EB00A0CF51 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
-		6CB91B2B2B52F5BD00A0CF51 /* TaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManager.swift; sourceTree = "<group>"; };
 		6CB91B312B5300EB00A0CF51 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		6CEF57EC2B54438400DCE4C7 /* HTTPRequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequestManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -170,7 +168,6 @@
 			children = (
 				6CB91AD02B520A2400A0CF51 /* Tests_iOS.swift */,
 				6CB91AD22B520A2400A0CF51 /* Tests_iOSLaunchTests.swift */,
-				6C8991F02B54936600B8D9FC /* TestHTTPRequestManager.swift */,
 			);
 			path = "Tests iOS";
 			sourceTree = "<group>";
@@ -223,9 +220,9 @@
 		6CB91B2A2B52F5A400A0CF51 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				6CB91B2B2B52F5BD00A0CF51 /* TaskManager.swift */,
 				6CB91B312B5300EB00A0CF51 /* Utils.swift */,
 				6CEF57EC2B54438400DCE4C7 /* HTTPRequestManager.swift */,
+				6C8991F22B554FAE00B8D9FC /* JsonProcessor.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -397,7 +394,6 @@
 				6CB91B092B521DE700A0CF51 /* AppDelegate.swift in Sources */,
 				6CB91B0D2B521E5A00A0CF51 /* SQLiteManagerType.swift in Sources */,
 				6CB91B162B521EFA00A0CF51 /* SQLiteBaseModel.swift in Sources */,
-				6CB91B2C2B52F5BD00A0CF51 /* TaskManager.swift in Sources */,
 				6CEF57ED2B54438400DCE4C7 /* HTTPRequestManager.swift in Sources */,
 				6CB91B282B52C1EB00A0CF51 /* HomeViewModel.swift in Sources */,
 				6CB91B0F2B521E5A00A0CF51 /* SQLiteManager.swift in Sources */,
@@ -406,6 +402,7 @@
 				6CB91AE22B520A2400A0CF51 /* HomeView.swift in Sources */,
 				6CB91B182B521EFA00A0CF51 /* Event.swift in Sources */,
 				6CB91AE02B520A2400A0CF51 /* PocGloboApp.swift in Sources */,
+				6C8991F32B554FAE00B8D9FC /* JsonProcessor.swift in Sources */,
 				6CB91B322B5300EB00A0CF51 /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -417,7 +414,6 @@
 				6CB91B0A2B521DE700A0CF51 /* AppDelegate.swift in Sources */,
 				6CB91B0E2B521E5A00A0CF51 /* SQLiteManagerType.swift in Sources */,
 				6CB91B172B521EFA00A0CF51 /* SQLiteBaseModel.swift in Sources */,
-				6CB91B2D2B52F5BD00A0CF51 /* TaskManager.swift in Sources */,
 				6CEF57EE2B54438400DCE4C7 /* HTTPRequestManager.swift in Sources */,
 				6CB91B292B52C1EB00A0CF51 /* HomeViewModel.swift in Sources */,
 				6CB91B102B521E5A00A0CF51 /* SQLiteManager.swift in Sources */,
@@ -426,6 +422,7 @@
 				6CB91AE32B520A2400A0CF51 /* HomeView.swift in Sources */,
 				6CB91B192B521EFA00A0CF51 /* Event.swift in Sources */,
 				6CB91AE12B520A2400A0CF51 /* PocGloboApp.swift in Sources */,
+				6C8991F42B554FAE00B8D9FC /* JsonProcessor.swift in Sources */,
 				6CB91B332B5300EB00A0CF51 /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -436,7 +433,6 @@
 			files = (
 				6CB91AD32B520A2400A0CF51 /* Tests_iOSLaunchTests.swift in Sources */,
 				6CB91AD12B520A2400A0CF51 /* Tests_iOS.swift in Sources */,
-				6C8991F12B54936600B8D9FC /* TestHTTPRequestManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

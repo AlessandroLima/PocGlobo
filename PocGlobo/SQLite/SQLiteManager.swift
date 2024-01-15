@@ -36,7 +36,6 @@ class SQLiteManager: SQLiteManagerType {
         
         var db: OpaquePointer?
         
-        // Obtenha o caminho para o diretório de documentos do aplicativo
         guard let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
             return (nil, "")
         }
@@ -45,7 +44,6 @@ class SQLiteManager: SQLiteManagerType {
         
         databasePath = databaseURL.path
         
-        // Verifique se o arquivo do banco de dados já existe
         if FileManager.default.fileExists(atPath: databaseURL.path) {
             if sqlite3_open(databaseURL.path, &db) == SQLITE_OK {
                 print("Database already exists and was successfully opened in: \(databaseURL.path)")
@@ -55,7 +53,7 @@ class SQLiteManager: SQLiteManagerType {
                 return (nil, "")
             }
         } else {
-            // Se o banco de dados não existir, crie-o
+            
             if sqlite3_open(databaseURL.path, &db) == SQLITE_OK {
                 print("Database successfully created in: \(databaseURL.path)")
                 return (db, databaseURL.path)

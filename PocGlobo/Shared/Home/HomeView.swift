@@ -18,13 +18,6 @@ struct HomeView: View {
 
     var body: some View {
         VStack {
-//            Image("seu_logo")
-//                .resizable()
-//                .frame(width: 100, height: 100)
-//                .clipShape(Circle())
-//                .overlay(Circle().stroke(Color.white, lineWidth: 4))
-//                .shadow(radius: 10)
-
             VStack(spacing: 20) {
                 TextField("Username", text: $viewModel.username)
                     .padding()
