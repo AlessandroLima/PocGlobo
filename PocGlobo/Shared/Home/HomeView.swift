@@ -51,6 +51,20 @@ struct HomeView: View {
             .padding(.top, 20)
 
             Spacer()
+            
+            Button(action: {
+                viewModel.addEvents()
+            }) {
+                Text("Adicionar Eventos")
+                    .foregroundColor(.white)
+                    .padding()
+                    .frame(width: 200, height: 50)
+                    .background(Color.gray)
+                    .cornerRadius(10)
+            }
+            .padding(.top, 20)
+
+            Spacer()
         }
         .padding()
         .background(Color.white.edgesIgnoringSafeArea(.all))

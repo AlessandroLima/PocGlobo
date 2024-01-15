@@ -127,4 +127,18 @@ class Event: SQLiteBaseModel, SQLiteBaseModelType, Codable {
         return true
     }
     
+    func extractIds(from json: [String: Any]) -> [Int] {
+        var idArray: [Int] = []
+
+        if let events = json["events"] as? [[String: Any]] {
+            for event in events {
+                if let id = event["id"] as? Int {
+                    idArray.append(id)
+                }
+            }
+        }
+
+        return idArray
+    }
+    
 }

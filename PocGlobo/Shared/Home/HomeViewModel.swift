@@ -35,10 +35,18 @@ class HomeViewModel: ObservableObject {
         print("Password: \(password)")
         
         let eventToInsert = [
-            Event(type: "\(TypesOfEvents.onclick)", createdIn: "\(NSDate().timeIntervalSince1970)")
+            Event(type: "\(TypesOfEvents.onclick)",
+                  createdIn: "\(NSDate().timeIntervalSince1970)")
         ]
-        
         _ = event.insertEventInBatch(events: eventToInsert)
         
+    }
+    
+    func addEvents() {
+        for _ in 1...100 {
+            let eventToInsert = [Event(type: "\(TypesOfEvents.onclick)",
+                                       createdIn: "\(NSDate().timeIntervalSince1970)")]
+            _ = event.insertEventInBatch(events: eventToInsert)
+        }
     }
 }

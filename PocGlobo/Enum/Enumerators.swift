@@ -20,7 +20,7 @@ enum DbEnvironment: String {
 }
 
 enum TaskEnvironment: UInt32 {
-    case waitingTime = 2
+    case waitingTime = 15
     case numberEvents = 10
 }
 

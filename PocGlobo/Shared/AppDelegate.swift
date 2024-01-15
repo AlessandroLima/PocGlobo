@@ -43,17 +43,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
             ]
             
             _ = event.insertEventInBatch(events: eventToInsert)
-            
-            //
-            //            _ = person.deleteRowsInBatch(ids: [1,2,3,4])
-            //
-            //            let persons = person.selectTopNPeople(limit: 10)
-            //
-            //            if let persons = persons {
-            //                for person in persons {
-            //                    print("Id: \(person.id), Nome: \(person.nome), Idade: \(person.idade)")
-            //                }
-            //            }
         }
     }
     
@@ -67,6 +56,8 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     
     @objc func handleJSONReceived(_ notification: Notification) {
         
+        var ids:[Int] = []
+        
         if Utils.shared.hasInternetConnection() {
             
             let events = event.selectTopNEvent(limit: Int(TaskEnvironment.numberEvents.rawValue))
@@ -74,24 +65,35 @@ class AppDelegate: NSObject, UIApplicationDelegate {
             let jsonData = try! jsonEncoder.encode(events)
             //let json = String(data: jsonData, encoding: String.Encoding.utf8)
             
-            manager.makePostRequest(with: jsonData) { result in
-                switch result {
-                case .success(let success):
-                    success == true ? print("Request successful: \(success)") : print("Request fail: \(success)")
-                case .failure(let error):
-                    switch error {
-                    case .timeout:
-                        print("Request timed out")
-                    case .invalidResponse:
-                        print("Invalid response")
-                    case .requestFailed(let underlyingError):
-                        print("Request failed with underlying error: \(underlyingError)")
+            if let jsonObject = try? JSONSerialization.jsonObject(with: jsonData, options: []) as? [String: Any] {
+                let extractedIds = event.extractIds(from: jsonObject)
+                ids = extractedIds
+                print(ids)
+            } else {
+                print("Error processing JSON.")
+            }
+            
+            if ids.count > 0 {
+                manager.makePostRequest(with: jsonData) { result in
+                    switch result {
+                    case .success(let success):
+                        success == true ? print("Request successful: \(success)") : print("Request fail: \(success)")
+                    case .failure(let error):
+                        switch error {
+                        case .timeout:
+                            print("Request timed out")
+                        case .invalidResponse:
+                            print("Invalid response")
+                        case .requestFailed(let underlyingError):
+                            print("Request failed with underlying error: \(underlyingError)")
+                        }
                     }
                 }
+            } else {
+                TaskManager.shared.endBackgroundTask()
             }
-        } else {
-            TaskManager.shared.endBackgroundTask()
         }
+        
     }
 }
 
