@@ -23,4 +23,8 @@ class Utils {
         }
     }
     
+    func fakeTest() -> Bool {
+        return true
+    }
+    
 }

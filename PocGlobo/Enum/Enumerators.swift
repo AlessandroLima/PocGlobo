@@ -16,7 +16,8 @@ enum TypesOfEvents: String{
 
 enum DbEnvironment: String {
     case dbName = "myDatabase.sqlite"
-    case dbEventTableName = "event"
+    case dbEventTableName = "events"
+    case dbKey = "id"
 }
 
 enum TaskEnvironment: Int {
