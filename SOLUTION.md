@@ -46,4 +46,5 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 ## 🚀 Instalando PocGlogo
 
 1. Clone o projeto via Git: git clone https://github.com/AlessandroLima/PocGlobo.git
-2. 
+2. Click em PocGlobo > PocGlobo > PocGlobo.xcodeproj
+3. 
