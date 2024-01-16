@@ -7,7 +7,7 @@
 ## Implementações
 
 1. Banco SQLite nativo (O uso do SQLite diminue o custo do IO e garante que não se perca eventos em casos de falta de internet, ou falha no servidor).
-2. Criação da tabela de eventos por reflexão automatizando a criação da tabela com base no model Events.
-3. Serviço de envido 
-4. Envie para o branch original: `git push origin <nome_do_projeto> / <local>`
-5. Crie a solicitação de pull.
+2. Criação da tabela de eventos por reflexão automatizando a criação da tabela com base no model Events. Caso a tabela já exista o sistema ignora esse passo.
+3. Serviço de envido customizável. O serviço de envio cria uma rotina que roda a cada n segundos, busca 10 evento no banco e envia ao servidor.
+4. Criação de rotinas de prevenção de falhas como queda de internet ou falha no vervidor. (Os eventos sá serão apagados da tabela em caso de uma resposta de sucesso no servidor).
+5. 
