@@ -47,4 +47,6 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
 1. Clone o projeto via Git: git clone https://github.com/AlessandroLima/PocGlobo.git
 2. Click em PocGlobo > PocGlobo > PocGlobo.xcodeproj
-3. 
+3. Quando a tela principal do projeto aparecer já terão sido criados 2 eventos (OpenApp e openScreen).
+4. Para testes click no botão login e após n segundos ocorrerá o envio de um evento (onclick).
+5. Para testes mais avançados click no botão "Adicionar eventos". A cada click você pode adicionar 100 eventos.
