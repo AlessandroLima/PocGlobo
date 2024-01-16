@@ -22,7 +22,7 @@ class HomeViewModel: ObservableObject {
         }
         
         let eventToInsert = [
-            Event(type: "\(TypesOfEvents.openScreen)", createdIn: "\(NSDate().timeIntervalSince1970)")
+            Event(type: "\(TypesOfEvents.openScreen)", createdIn: "\(NSDate().timeIntervalSince1970)", uniqueIdentifier: UUID().uuidString)
         ]
         
         _ = event.insertEventInBatch(events: eventToInsert)
@@ -36,7 +36,8 @@ class HomeViewModel: ObservableObject {
         
         let eventToInsert = [
             Event(type: "\(TypesOfEvents.onclick)",
-                  createdIn: "\(NSDate().timeIntervalSince1970)")
+                  createdIn: "\(NSDate().timeIntervalSince1970)",
+                  uniqueIdentifier: UUID().uuidString)
         ]
         _ = event.insertEventInBatch(events: eventToInsert)
         
@@ -45,7 +46,8 @@ class HomeViewModel: ObservableObject {
     func addEvents() {
         for _ in 1...100 {
             let eventToInsert = [Event(type: "\(TypesOfEvents.onclick)",
-                                       createdIn: "\(NSDate().timeIntervalSince1970)")]
+                                       createdIn: "\(NSDate().timeIntervalSince1970)",
+                                       uniqueIdentifier: UUID().uuidString)]
             _ = event.insertEventInBatch(events: eventToInsert)
         }
     }

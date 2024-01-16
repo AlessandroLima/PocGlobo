@@ -10,12 +10,14 @@ class Event: SQLiteBaseModel, SQLiteBaseModelType, Codable {
     var id: Int
     var type: String
     var createdIn: String
+    var uniqueIdentifier: String
     
     //Placeholder
-    init(id: Int = 0, type: String = "", createdIn: String = "") {
+    init(id: Int = 0, type: String = "", createdIn: String = "", uniqueIdentifier: String = UUID().uuidString) {
         self.id = id
         self.type = type
         self.createdIn = createdIn
+        self.uniqueIdentifier = uniqueIdentifier
     }
     
     func createTable(){
@@ -34,7 +36,7 @@ class Event: SQLiteBaseModel, SQLiteBaseModelType, Codable {
                 return false
             }
             
-            let insertStatementString = "INSERT INTO \(DbEnvironment.dbEventTableName.rawValue) (type, createdIn) VALUES (?, ?)"
+            let insertStatementString = "INSERT INTO \(DbEnvironment.dbEventTableName.rawValue) (type, createdIn, uniqueIdentifier) VALUES (?, ?, ?)"
             var insertStatement: OpaquePointer? = nil
             
             if sqlite3_prepare_v2(super.db, insertStatementString, -1, &insertStatement, nil) != SQLITE_OK {
@@ -47,8 +49,10 @@ class Event: SQLiteBaseModel, SQLiteBaseModelType, Codable {
             for event in events {
                 let itemType = event.type as NSString
                 let itemcreatedIn = event.createdIn as NSString
+                let uniqueIdentifier = event.uniqueIdentifier as NSString
                 sqlite3_bind_text(insertStatement, 1, itemType.utf8String, -1, nil)
                 sqlite3_bind_text(insertStatement, 2, itemcreatedIn.utf8String, -1, nil)
+                sqlite3_bind_text(insertStatement, 3, uniqueIdentifier.utf8String, -1, nil)
                 
                 if sqlite3_step(insertStatement) != SQLITE_DONE {
                     print("Error inserting event")
@@ -78,7 +82,7 @@ class Event: SQLiteBaseModel, SQLiteBaseModelType, Codable {
             return nil
         }
 
-        let selectStatementString = "SELECT * FROM \(DbEnvironment.dbEventTableName.rawValue) ORDER BY id DESC LIMIT ?"
+        let selectStatementString = "SELECT * FROM \(DbEnvironment.dbEventTableName.rawValue) ORDER BY id LIMIT ?"
         var selectStatement: OpaquePointer? = nil
 
         if sqlite3_prepare_v2(super.db, selectStatementString, -1, &selectStatement, nil) != SQLITE_OK {
@@ -92,7 +96,8 @@ class Event: SQLiteBaseModel, SQLiteBaseModelType, Codable {
             let id = Int(sqlite3_column_int(selectStatement, 0))
             let type = String(cString: sqlite3_column_text(selectStatement, 1))
             let createdIn = String(cString: sqlite3_column_text(selectStatement, 2))
-            let event = Event(id: id, type: type, createdIn: createdIn)
+            let uniqueIdentifier = String(cString: sqlite3_column_text(selectStatement, 3))
+            let event = Event(id: id, type: type, createdIn: createdIn, uniqueIdentifier: uniqueIdentifier)
             events.append(event)
         }
 
