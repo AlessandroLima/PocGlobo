@@ -22,7 +22,7 @@
   <img src="https://img.shields.io/badge/-Linkedin-0e76a8?style=flat-square&logo=Linkedin&logoColor=white&link=(https://www.linkedin.com/in/alessandro-teixeira-lima-11ba2421/" alt="LinkedIn"/></a>
 </p>
 
-# PocGlobo 
+# PocGlobo - Envio de eventos.
 
 ![Captura de Tela 2024-01-16 às 09 09 06](https://github.com/AlessandroLima/PocGlobo/assets/515100/e45a32b8-6656-456e-9e04-f0c2d3f5cfeb)
 
@@ -36,3 +36,8 @@
 4. Criação de rotinas de prevenção de falhas como queda de internet ou falha no vervidor. (Os eventos sá serão apagados da tabela em caso de uma resposta de sucesso no servidor).
 5. Todas ás variáveis de ambiente são customizáveis:(Tipos de eventos, nome do banco, tempo de espera entre envios, número de enventos enviados e dados dos servidor.
 
+## 💻 Pré-requisitos
+
+Antes de começar, verifique se você atendeu aos seguintes requisitos:
+
+- Xcode 13.2.1 ou + 
