@@ -4,7 +4,7 @@
   O objetivo desse projeto visa com segurança armazenar os eventos criados pelo usuário e o envio dos eventos a um servidor.
 </p>
 <p align="left">
-  🦄 Linguagem: **Swift com UI feita em SwiftUI, banco de dados SQLIte e gerenciamento de pacotes via SPM**
+  🦄 Linguagem: **Swift com UI feita em SwiftUI, banco de dados SQLite e gerenciamento de pacotes via SPM**
 </p>
 
 <p align="left">
