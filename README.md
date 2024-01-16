@@ -34,7 +34,7 @@
 2. Criação da tabela de eventos por reflexão automatizando a criação da tabela com base no model Events. Caso a tabela já exista o sistema ignora esse passo.
 3. Serviço de envido customizável. O serviço de envio cria uma rotina que roda a cada n segundos, busca 10 evento no banco e envia ao servidor.
 4. Criação de rotinas de prevenção de falhas como queda de internet ou falha no vervidor. (Os eventos só serão apagados da tabela em caso de uma resposta de sucesso no servidor).
-5. Todas ás variáveis de ambiente são customizáveis:(Tipos de eventos, nome do banco, tempo de espera entre envios, número de enventos enviados e dados dos servidor.
+5. Todas ás variáveis de ambiente são customizáveis:(Tipos de eventos, nome do banco, tempo de espera entre envios, número de enventos enviados e dados do servidor.
 6. Foi usado para gerencimento de pacotes o Swift Package Manager que evita erros comuns do CocoaPods.
 
 ## 💻 Pré-requisitos
