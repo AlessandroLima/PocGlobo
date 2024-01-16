@@ -4,7 +4,7 @@
   O objetivo desse projeto visa com segurança armazenar os eventos criados pelo usuário e o envio dos eventos a um servidor.
 </p>
 <p align="left">
-  🦄 Linguagem: **Swift com UI feita em SwiftUI e uso de banco de dados SQLIte**
+  🦄 Linguagem: **Swift com UI feita em SwiftUI, banco de dados SQLIte e gerenciamento de pacotes via SPM**
 </p>
 
 <p align="left">
@@ -35,9 +35,15 @@
 3. Serviço de envido customizável. O serviço de envio cria uma rotina que roda a cada n segundos, busca 10 evento no banco e envia ao servidor.
 4. Criação de rotinas de prevenção de falhas como queda de internet ou falha no vervidor. (Os eventos sá serão apagados da tabela em caso de uma resposta de sucesso no servidor).
 5. Todas ás variáveis de ambiente são customizáveis:(Tipos de eventos, nome do banco, tempo de espera entre envios, número de enventos enviados e dados dos servidor.
+6. Foi usado para gerencimento de pacotes o Swift Package Manager que evita erros comuns do CocoaPds.
 
 ## 💻 Pré-requisitos
 
 Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
-- Xcode 13.2.1 ou + 
+- Xcode 13.2.1 ou +
+
+## 🚀 Instalando PocGlogo
+
+1. Clone o projeto via Git: git clone https://github.com/AlessandroLima/PocGlobo.git
+2. 
